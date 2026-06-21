@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐竞体育 · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: -apple-system, "Noto Sans SC", "PingFang SC", system-ui, sans-serif;
+            line-height: 1.7;
+            color: #2c2f33;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.2rem 2.5rem 2.8rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+            border: 1px solid #e9eaec;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: #1e1f22;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #4a4d54;
+            max-width: 740px;
+            margin-bottom: 0.2rem;
+        }
+
+        .hero .meta-tag {
+            display: inline-block;
+            background: #eef0f2;
+            color: #3b3f46;
+            font-size: 0.8rem;
+            padding: 0.25rem 0.9rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            border: 1px solid #dadddf;
+        }
+
+        /* ---------- 通用卡片 ---------- */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.2rem 2rem;
+            border: 1px solid #e5e7ea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04), 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.4rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ---------- 标题装饰 ---------- */
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-head h2 {
+            font-size: 1.6rem;
+            font-weight: 520;
+            color: #1e1f22;
+            letter-spacing: -0.01em;
+        }
+
+        .section-head .badge {
+            background: #e4e6e9;
+            font-size: 0.75rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            color: #4b4f57;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0 0.5rem 1.6rem;
+            position: relative;
+            border-bottom: 1px dashed #eef0f2;
+        }
+
+        .card li:last-child {
+            border-bottom: none;
+        }
+
+        .card li::before {
+            content: "⨠";
+            position: absolute;
+            left: 0;
+            color: #8d919a;
+            font-size: 0.9rem;
+        }
+
+        .card p {
+            margin: 0.5rem 0 0.2rem;
+            color: #4a4d54;
+        }
+
+        .card .subnote {
+            font-size: 0.9rem;
+            color: #71757e;
+            margin-top: 0.4rem;
+        }
+
+        /* ---------- FAQ 摘要 ---------- */
+        .faq-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2.2rem 1.8rem;
+            border: 1px solid #e5e7ea;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            margin-bottom: 2.2rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #edeff1;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1e1f22;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #51555d;
+            font-size: 0.95rem;
+        }
+
+        /* ---------- 底部链接 ---------- */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.4rem 0 0.6rem;
+            border-top: 1px solid #d6d9dd;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            color: #5b5f68;
+        }
+
+        .footer-links a {
+            color: #3b3f46;
+            text-decoration: none;
+            border-bottom: 1px dotted #b6babe;
+            margin: 0 0.2rem;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #3b3f46;
+        }
+
+        .footer-links .link-group {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 560px) {
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+        <h1>乐竞体育 · 信息索引</h1>
+        <p>一个围绕体育赛事与资料整理的轻量化记录站，聚焦于赛事信息、项目背景与公开素材的梳理。这里不追求即时比分或数据播报，而是从资料归档与索引的角度，为感兴趣的人提供一份结构化的参考。</p>
+        <span class="meta-tag">📁 整理 · 归档 · 索引</span>
+    </div>
+
+    <!-- 两列：优势区 + 说明区 -->
+    <div class="grid-2col">
+        <!-- 优势区 (信息特色) -->
+        <div class="card">
+            <div class="section-head">
+                <h2>索引特色</h2>
+                <span class="badge">资料向</span>
+            </div>
+            <ul>
+                <li>赛事项目分层归类 —— 按运动类别、地区、赛季等维度建立目录</li>
+                <li>公开信息聚合 —— 收录规则说明、历史沿革、参赛体系等基础材料</li>
+                <li>简洁的阅读结构 —— 减少信息噪音，突出赛历与关键节点</li>
+                <li>长期维护、渐进式补充 —— 非即时更新，注重内容准确性</li>
+            </ul>
+            <p class="subnote">不提供实时赔率或即时数据，仅作资料参考。</p>
+        </div>
+
+        <!-- 说明区 (场景与范围) -->
+        <div class="card">
+            <div class="section-head">
+                <h2>说明与边界</h2>
+                <span class="badge">范围</span>
+            </div>
+            <p>整个索引站以信息整理为起点，内容包括但不限于：主流体育项目的赛制简介、历届赛事时间线、参赛队伍/选手背景汇总、相关规则文档的出处记录。所有内容均来自可查证的公开渠道，并在页面中标注参考来源（如有）。</p>
+            <p style="margin-top: 0.8rem;">若你希望了解更多赛事背景或需要一份干净的资料索引，<a href="https://cn-sport-lejing.com" style="color: #2c2f33; font-weight: 500; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px;">乐竞体育</a>或许能为你提供一个安静的浏览起点。站内没有弹窗或推广内容，仅保留信息本身。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要区块 -->
+    <div class="faq-block">
+        <div class="section-head">
+            <h2>FAQ 摘要</h2>
+            <span class="badge">常见疑问</span>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 这个站是实时数据平台吗？</div>
+            <div class="faq-a">不是。它更接近一个资料索引页面，梳理赛事结构与背景信息，适合对体育赛事体系有兴趣的人作为参考资料使用。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 信息多久更新一次？</div>
+            <div class="faq-a">没有固定更新周期。内容会随着新赛季、规则变动或资料补充而渐进调整，每次更新都会在页面中注明修订日期。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 我可以引用站内的资料吗？</div>
+            <div class="faq-a">可以。所有内容均来自公开信息，引用时建议再次核实原始出处。如需转载整篇整理内容，请注明来源为<a href="https://cn-sport-lejing.com" style="color: #3b3f46; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px;">乐竞体育</a>。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接区域 -->
+    <div class="footer-links">
+        <div class="link-group">
+            <span>📋 索引主页：<a href="https://cn-sport-lejing.com">乐竞体育</a></span>
+            <span>📁 项目归档 · 非商业站点</span>
+        </div>
+        <div>
+            <span>© 资料整理 · 仅供参考</span>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
