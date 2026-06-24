@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 资讯专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, sans-serif;
+      background: linear-gradient(145deg, #fce9d8 0%, #f5d7c0 50%, #edc9ab 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+      color: #2e241c;
+    }
+
+    .page-wrapper {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* 杂志封面式横幅 */
+    .hero-banner {
+      background: linear-gradient(125deg, #b66d4b 0%, #a15434 100%);
+      padding: 2.8rem 2.2rem;
+      border-radius: 36px 12px 36px 12px;
+      box-shadow: 0 18px 30px -10px rgba(120, 60, 30, 0.35);
+      margin-bottom: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 215, 175, 0.08);
+      border-radius: 50%;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: -20px;
+      width: 130px;
+      height: 130px;
+      background: rgba(255, 200, 150, 0.06);
+      border-radius: 50%;
+    }
+
+    .hero-banner h1 {
+      color: #fff4ea;
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-banner .sub {
+      color: #f7e2d1;
+      font-size: 1.1rem;
+      margin-top: 0.6rem;
+      opacity: 0.9;
+      border-top: 1px solid rgba(255, 245, 230, 0.3);
+      display: inline-block;
+      padding-top: 0.6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 白色卡片系统 */
+    .card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 1.8rem;
+      box-shadow: 0 10px 25px -8px rgba(100, 60, 30, 0.18);
+      transition: box-shadow 0.25s ease, transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 16px 35px -10px rgba(100, 60, 30, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .card h2 {
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: #562f1d;
+      border-left: 5px solid #b9734e;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #6d3f28;
+      margin: 1.5rem 0 0.6rem 0;
+    }
+
+    .card p {
+      margin-bottom: 1rem;
+      color: #3e2f26;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 圆角按钮感链接 */
+    .link-button {
+      display: inline-block;
+      background: #c98560;
+      color: white;
+      padding: 0.45rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+      box-shadow: 0 4px 8px rgba(160, 80, 40, 0.15);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .link-button:hover {
+      background: #b06a45;
+      box-shadow: 0 6px 12px rgba(140, 70, 35, 0.25);
+      transform: scale(1.02);
+    }
+
+    .link-button:active {
+      transform: scale(0.97);
+    }
+
+    /* 列表与细节 */
+    .scene-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .scene-list li {
+      padding: 0.6rem 0 0.6rem 1.8rem;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="%23b9734e"><circle cx="12" cy="12" r="6"/></svg>') left center no-repeat;
+      background-size: 14px;
+      margin-bottom: 0.2rem;
+      color: #3e2f26;
+    }
+
+    .faq-item {
+      margin: 1.2rem 0 0.6rem;
+      border-left: 3px solid #deb887;
+      padding-left: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #562f1d;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+    }
+
+    /* 页尾 */
+    .footer-area {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem 0.5rem 0.2rem;
+      border-top: 1px solid rgba(110, 70, 40, 0.15);
+      color: #694b38;
+      font-size: 0.95rem;
+      background: transparent;
+    }
+
+    .footer-area a {
+      color: #7d4f35;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+    }
+
+    .footer-area a:hover {
+      color: #a55f3b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .hero-banner {
+        padding: 2rem 1.2rem;
+        border-radius: 24px 8px 24px 8px;
+      }
+      .hero-banner h1 {
+        font-size: 2.1rem;
+      }
+      .card {
+        padding: 1.6rem 1.2rem;
+        border-radius: 18px;
+      }
+      .card h2 {
+        font-size: 1.4rem;
+        padding-left: 0.7rem;
+      }
+      .link-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-banner h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* 印刷样式微调 */
+    @media print {
+      body {
+        background: #fff;
+      }
+      .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+      .hero-banner {
+        background: #b66d4b !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- 首页横幅 -->
+    <div class="hero-banner">
+      <h1>爱游戏 · 资讯专题</h1>
+      <div class="sub">查询 · 对照 · 延伸阅读</div>
+    </div>
+
+    <!-- 第一部分：日常查询与对照 -->
+    <div class="card">
+      <h2>从查询到对照</h2>
+      <p>在日常游戏信息的获取中，人们往往面对零散的攻略、版本公告和社区讨论。此时需要一个结构化的索引，帮助快速定位准确的背景知识。<a href="https://siteigame.com" class="link-button" style="margin-left: 0.3rem;">爱游戏</a> 正是以这样的定位切入，将平台整理为可检索的内容单元，覆盖从玩法机制到版本沿革的多个维度。与其他信息聚合不同，这里更强调条目之间的对照关系——例如将不同赛季的调整并列展示，或把同类道具的属性放在一张表中。这种呈现方式减少了来回跳转的精力损耗，让横向比较成为自然流程。</p>
+      <p>对于习惯深度查阅的用户，专题内还保留了可扩展的注释与出处链接。你可以从一条简短的版本说明出发，逐步展开为完整的数值变化时间线。同时，所有信息均采用平实的描述语气，避免过度解读，适合快速建立对游戏框架的客观认知。</p>
+    </div>
+
+    <!-- 第二部分：延伸阅读与场景拆分 -->
+    <div class="card">
+      <h2>延伸阅读与场景化拆分</h2>
+      <p>信息获取并非止于查到某个数值或规则。多数情况下，玩家需要将知识点放进具体的游戏场景中去理解。比如一个伤害计算公式，在实际对局中会因为目标防御、增益状态、地形差异而产生变化。<strong>爱游戏</strong> 在基础条目之外，专门设置了“场景化拆解”专栏，选取有代表性的战术或关卡节点，把抽象机制还原为可复现的步骤。</p>
+
+      <ul class="scene-list">
+        <li>版本更新对照：将各职业调整、装备改动以表格形式并列，一眼识别变动幅度。</li>
+        <li>机制延伸笔记：从单一技能引出连招逻辑、资源循环、团队配合等上层策略。</li>
+        <li>术语库与简释：收录社区常用缩略语、黑话及出处，降低新玩家的阅读门槛。</li>
+      </ul>
+
+      <p>在延伸阅读部分，编辑会挑选与当前条目相关的 2–3 个话题进行串联，形成知识微网络。如果你在查阅某个武器属性时希望了解它的历史迭代，或想知道同类武器在不同作品中的表现差异，都可以顺着内部链接继续深入。这种结构避免了“查到即走”的浅阅读，将一次性查询转化为持续的信息织网。</p>
+    </div>
+
+    <!-- 第三部分：FAQ 摘要与使用提示 -->
+    <div class="card">
+      <h2>常见问题与使用提示</h2>
+      <p>针对初次使用平台的新读者，这里整理了出现频率较高的几类询问，帮助更快进入查阅节奏。</p>
+
+      <div class="faq-item">
+        <strong>内容是否覆盖所有热门作品？</strong>
+        <p>目前以稳定运营的多人游戏、经典系列和近期新作为主要收录范围，条目按照热度与社区需求逐步扩充。列表页设有筛选与搜索，可以快速定位特定游戏或版本。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>资料会随版本更新吗？</strong>
+        <p>每次游戏推出正式补丁或赛季更迭，对应条目会在一周内进行同步修正，并保留历史版本对照。你可以在每条内容的页脚查看最后更新时间。</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>适合快速浏览还是深度研读？</strong>
+        <p>二者皆可。每一条目均以“摘要—详情—延伸”的三段式编排，前 200 字概括核心结论，后方展开具体数据与引用。你可以根据需求自由选择阅读深度。</p>
+      </div>
+
+      <p style="margin-top: 1.5rem; font-style: italic; color: #694b38;">如果你在查阅过程中发现遗漏或表述误差，欢迎通过站内的反馈通道提交修正，每条有效建议都会在下一轮更新中体现。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-area">
+      <p style="margin-bottom: 0.6rem;">本专题基于公开资料整理，所有内容仅供学习与参考。</p>
+      <p>更多游戏资讯、对照与延伸阅读，尽在 <a href="https://siteigame.com">爱游戏</a> · 持续更新中。</p>
+    </div>
+
+  </div>
+</body>
+</html>
