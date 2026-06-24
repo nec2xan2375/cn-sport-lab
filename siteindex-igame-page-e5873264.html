@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 站点知识库介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #fafaf9;
+      color: #1c1c1e;
+      line-height: 1.75;
+      padding: 2rem 1.25rem;
+    }
+
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      .page-wrap {
+        padding: 1.75rem 1.25rem;
+        border-radius: 24px;
+      }
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #1e1e1e;
+      border-left: 5px solid #bcd1c0;
+      padding-left: 1rem;
+    }
+
+    .subhead {
+      font-size: 1.05rem;
+      color: #5b5b5b;
+      margin-bottom: 2.25rem;
+      padding-left: 1rem;
+      border-left: 5px solid transparent;
+    }
+
+    .section-title {
+      font-weight: 530;
+      font-size: 1.25rem;
+      margin: 2.8rem 0 1.2rem 0;
+      letter-spacing: 0.01em;
+      color: #2a2a2a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title::before {
+      content: "▹";
+      color: #7f9c89;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #2c2c2e;
+    }
+
+    .intro-highlight {
+      background: #f2f5f0;
+      padding: 1.25rem 1.5rem;
+      border-radius: 20px;
+      margin: 1.8rem 0;
+      box-shadow: inset 0 0 0 1px rgba(120, 140, 110, 0.08);
+    }
+
+    .intro-highlight p {
+      margin-bottom: 0.4rem;
+    }
+
+    .intro-highlight a {
+      color: #3c5e4a;
+      text-decoration: none;
+      font-weight: 470;
+      border-bottom: 1px dotted #93ae9b;
+      transition: border 0.15s;
+    }
+    .intro-highlight a:hover {
+      border-bottom: 1px solid #3c5e4a;
+    }
+
+    a {
+      color: #3c5e4a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #3c5e4a;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .info-card {
+      background: #f8f9f7;
+      border-radius: 18px;
+      padding: 1.2rem 1.2rem 1rem 1.2rem;
+      border: 1px solid #eaece8;
+      transition: background 0.15s, border 0.15s;
+    }
+    .info-card:hover {
+      background: #f0f3ee;
+      border-color: #d3ddd2;
+    }
+    .info-card h3 {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.55rem;
+      color: #1f2d26;
+      letter-spacing: 0.01em;
+    }
+    .info-card p {
+      font-size: 0.925rem;
+      color: #464a47;
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+    .info-card a {
+      font-weight: 460;
+    }
+
+    @media (max-width: 500px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .note-box {
+      background: #f4f1eb;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      margin: 2.2rem 0 1rem;
+      border-left: 4px solid #b1c6ae;
+    }
+    .note-box p {
+      margin-bottom: 0.6rem;
+      font-size: 0.98rem;
+      color: #2e332f;
+    }
+    .note-box strong {
+      font-weight: 540;
+      color: #1f2e25;
+    }
+
+    .faq-mini {
+      margin: 2.8rem 0 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #ede9e3;
+    }
+    .faq-item {
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #f0ece6;
+    }
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 500;
+      color: #1d2821;
+      margin-bottom: 0.15rem;
+      font-size: 1rem;
+    }
+    .faq-a {
+      color: #4b4f4c;
+      font-size: 0.95rem;
+      padding-left: 0.2rem;
+    }
+
+    .footer-note {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #7b7f7b;
+      text-align: center;
+      border-top: 1px solid #efebe5;
+      padding-top: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .inline-link-wrap {
+      background: #f6f9f4;
+      padding: 0.15rem 0.4rem;
+      border-radius: 6px;
+      transition: background 0.1s;
+    }
+    .inline-link-wrap a {
+      border-bottom: 1px solid #cbd9cb;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <h1>爱游戏 · 站点索引与说明</h1>
+  <div class="subhead">关于「siteindex-igame.com」的知识库式介绍</div>
+
+  <div class="intro-highlight">
+    <p><strong>爱游戏</strong> 是一个以内容索引与信息归集为核心的知识型站点。这里不制造噱头，也不追逐流量；它更像一面安静的告示板，把与游戏、兴趣、轻知识相关的内容汇总整理，方便有需要的人查阅。</p>
+    <p>如果你希望快速了解某一类游戏背景、玩法说明或社区观点，不妨从 <a href="https://siteindex-igame.com">爱游戏</a> 的目录页开始浏览——它未必是最全的，但足够清晰。</p>
+  </div>
+
+  <!-- 站点特点 / 知识库结构 -->
+  <div class="section-title">站点特点与目录感</div>
+  <p>整个页面采用精简的卡片式目录结构，将信息分为几个功能区：<strong>说明区</strong>、<strong>提示区</strong> 以及 <strong>相关链接</strong>。每一块都经过筛选，避免冗余，降低阅读负担。</p>
+  <p>内容更新节奏稳定，没有弹窗干扰，也没有复杂的层级——你看到的，就是站内希望提供给你的全部。</p>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>📋 说明区</h3>
+      <p>站点定位、内容来源与整理逻辑。所有条目均标注参考，方便进一步核查。这是理解整个站点的起点。</p>
+    </div>
+    <div class="info-card">
+      <h3>💡 提示区</h3>
+      <p>常见操作指引、检索方式以及容易被忽略的细节。例如某些专题页的访问方法、关键词推荐等。</p>
+    </div>
+    <div class="info-card">
+      <h3>🔗 相关信息区</h3>
+      <p>与游戏文化、社区讨论或实用工具相关的延伸链接。部分来源于站内维护者的日常收集，保持轻量。</p>
+    </div>
+    <div class="info-card">
+      <h3>🧩 知识库入口</h3>
+      <p>通过首页的索引可直接跳转到具体分类。每个分类下都有简短的描述，帮助你判断是否需要深入阅读。</p>
+    </div>
+  </div>
+
+  <div class="section-title">使用场景参考</div>
+  <p>不论你是偶然路过，还是特意前来查找某款冷门游戏的背景设定，又或者只是想看一篇不带广告的随笔，<a href="https://siteindex-igame.com">爱游戏</a> 都尽量保持中立与简洁。站点不收集个人信息，也没有强制注册的环节。</p>
+  <p>适合以下场景：快速查阅游戏术语、了解某个系列的时间线、对比不同版本的内容差异。另外也收录了一些玩家自发的考据文章，质量参差不齐，但贵在真诚。</p>
+
+  <div class="note-box">
+    <p><strong>🔔 提示：</strong> 如果你在首页找不到想了解的内容，可以尝试使用站内搜索（如果有的话），或者直接通过邮件向维护者提出建议。站点尚在缓慢扩建中，部分分类可能暂时只有骨架。</p>
+    <p>所有推荐链接都经过人工筛选，不包含商业推广或暗链。请放心浏览。</p>
+  </div>
+
+  <!-- FAQ摘要  -->
+  <div class="faq-mini">
+    <div class="section-title" style="margin-top:0.2rem;">常见问题摘要</div>
+    <div class="faq-item">
+      <div class="faq-q">这个站点的内容是谁整理的？</div>
+      <div class="faq-a">由几位游戏爱好者利用业余时间维护，没有机构背景，内容仅供参考。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">内容会定期更新吗？</div>
+      <div class="faq-a">不定期更新，主要取决于维护者空闲时间。不过历史内容基本稳定，不会随意删除。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">为什么叫做“爱游戏”？</div>
+      <div class="faq-a">名字来源于一个简单的想法：因为真的喜欢游戏，所以愿意花时间整理这些索引。你也可以理解为一个同好小站。</div>
+    </div>
+  </div>
+
+  <div style="margin: 2rem 0 0.5rem; padding:1.2rem 0 0.2rem; border-top:1px solid #efebe5;">
+    <p style="font-size:0.98rem;">如果你对某个分类感兴趣，或发现链接失效，可以通过页面上保留的联系方式告知。更简单的方法：直接记住首页地址 <span class="inline-link-wrap"><a href="https://siteindex-igame.com">爱游戏</a></span>，随时回来看一眼。</p>
+  </div>
+
+  <div class="footer-note">
+    <span>siteindex-igame.com · 一个安静的索引角落</span><br>
+    <span style="opacity:0.7; font-size:0.8rem;">内容仅供参考，不构成任何建议</span>
+  </div>
+
+</div>
+</body>
+</html>
